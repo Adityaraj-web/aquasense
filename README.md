@@ -1,2 +1,2 @@
-# aquasense
+# Aquasense
 Repository for aquasense
