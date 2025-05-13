@@ -1,0 +1,280 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+  
+  body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #0077cc;
+  }
+  
+  /* Bubbles Animation */
+  .background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .bubbles span {
+    position: absolute;
+    bottom: -100px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: float 10s linear infinite;
+  }
+  
+  .bubbles span:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .bubbles span:nth-child(even) {
+    background-color: rgba(173, 216, 230, 0.7);
+  }
+  
+  /* Bubble positions/durations */
+  .bubbles span:nth-child(1) { left: 10%; animation-duration: 12s; }
+  /* ... (keep your existing bubble positions) ... */
+  
+  @keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-1200px); opacity: 0; }
+  }
+  
+  /* Login Container */
+  .login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(173, 216, 230, 0.8);
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #333; /* Changed for better contrast */
+    z-index: 10;
+    width: 380px;
+    max-width: 90%;
+  }
+  
+  .login-container h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-family: 'Bubblegum Sans', cursive;
+    color: #00509e;
+  }
+  
+  .error-message {
+    color: #ff6b6b;
+    background: rgba(255, 0, 0, 0.1);
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+  }
+  
+  .login-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-container label {
+    margin-bottom: 8px;
+    font-size: 1rem;
+    text-align: left;
+    color: #00509e;
+  }
+  
+  .login-container input {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .login-container input:focus {
+    outline: 2px solid #00509e;
+    box-shadow: 0 0 5px rgba(0, 80, 158, 0.5);
+  }
+  
+  .login-container button {
+    padding: 10px;
+    background-color: #00509e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-container button:hover {
+    background-color: #003f7f;
+  }
+  
+  .signup-text {
+    margin-top: 15px;
+    color: #333;
+  }
+  
+  .signup-link {
+    color: #00509e;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .signup-link:hover {
+    color: #003f7f;
+    text-decoration: underline;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .login-container {
+      padding: 20px;
+    }
+    
+    .bubbles span {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+.auth-error {
+    background: #ffebee;
+    color: #c62828;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-left: 3px solid #c62828;
+    animation: fadeIn 0.3s ease;
+}
+
+.auth-error svg {
+    flex-shrink: 0;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Auth containers */
+.login-container, .signup-container {
+    background-color: rgba(173, 216, 230, 0.8);
+    padding: 30px 40px;
+    border-radius: 10px;
+    width: 380px;
+  }
+  
+  /* Form elements */
+  .auth-form input {
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+  
+  /* Error messages */
+  .error-message {
+    background: rgba(255, 0, 0, 0.1);
+    border-left: 3px solid #c62828;
+  }
+  
+  /* Auth-specific responsive rules */
+  @media (max-width: 768px) {
+    .login-container, .signup-container {
+      width: 90%;
+    }
+  }
+  /* Flash messages */
+.flash-message {
+    padding: 10px;
+    margin: 10px 0;
+    background: #ffebee;
+    border-left: 3px solid #c62828;
+    color: #c62828;
+  }
+  
+  /* Protected content warning */
+  .protected {
+    display: none;  /* Will show only when logged in */
+  }
+  /* auth.css - Authentication-specific styles */
+.auth-error {
+    animation: fadeIn 0.3s ease;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.spinner-border {
+    vertical-align: text-top;
+    width: 1rem;
+    height: 1rem;
+    border-width: 0.15em;
+}
+
+/* Form-specific styles */
+.auth-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.auth-form .form-control {
+    margin-bottom: 1rem;
+}
+
+.auth-form button[type="submit"] {
+    width: 100%;
+    position: relative;
+}
+
+.auth-form button[type="submit"] .spinner-border {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
